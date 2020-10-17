@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Virgorasion</title>
+	<link rel="stylesheet" href="assets/plugins/fontawesome-5.12/css/all.min.css">
+	<link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+	<!-- <link rel="stylesheet" href="assets/plugins/datatables/media/css/dataTables.bootstrap.css"> -->
+	<link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+</head>
+
+<body class="hold-transition layout-top-nav">
+	<div class="wrapper">
+
+		<!-- Navbar -->
+		<nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+			<div class="container">
+				<a href="index.html" class="navbar-brand">
+					<!-- <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                        class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+					<span class="brand-text font-weight-light">Virgorasion</span>
+				</a>
+
+				<button class="navbar-toggler order-1" type="button" data-toggle="collapse"
+					data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse order-3" id="navbarCollapse">
+					<!-- Left navbar links -->
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a href="index.html" class="nav-link">Home</a>
+						</li>
+						<li class="nav-item">
+							<a href="indonesia.html" class="nav-link">Indonesia</a>
+						</li>
+						<li class="nav-item">
+							<a href="rumahsakit.html" class="nav-link">Rumah Sakit</a>
+						</li>
+						<li class="nav-item">
+							<a href="contact.html" class="nav-link">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- /.navbar -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+				<div class="container">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0 text-dark"> Data Global Corona</h1>
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+				</div><!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+
+			<!-- Main content -->
+			<div class="content">
+				<div class="container">
+					<!-- Small boxes (Stat box) -->
+					<div class="row">
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-info">
+								<div class="inner">
+									<h3 id="positif"></h3>
+
+									<p>Total Positif</p>
+								</div>
+								<div class="icon">
+									<i class="fas fa-tired"></i>
+								</div>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-success">
+								<div class="inner">
+									<h3 id="sembuh"></h3>
+
+									<p>Sembuh</p>
+								</div>
+								<div class="icon">
+									<i class="fas fa-smile-beam"></i>
+								</div>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-danger">
+								<div class="inner">
+									<h3 id="meninggal"></h3>
+
+									<p>Meninggal</p>
+								</div>
+								<div class="icon">
+									<i class="fas fa-sad-tear"></i>
+								</div>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-warning">
+								<div class="inner" style="color:white">
+									<h6 id="indonesia"></h6>
+
+									<p>Indonesia</p>
+								</div>
+								<div class="icon">
+									<i><img src="assets/image/indonesia.png" style="margin-top:-80px;opacity:0.5" alt=""
+											width="60" height="60"></i>
+								</div>
+							</div>
+						</div>
+						<!-- ./col -->
+
+
+					</div>
+					<!-- /.row -->
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">Data Kasus Coronavirus di Dunia</div>
+						</div>
+						<div class="card-body">
+							<table id="coronaGlobal" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<td>Negara</td>
+										<td>Positif</td>
+										<td>Sembuh</td>
+										<td>Meninggal</td>
+									</tr>
+								</thead>
+								<tbody>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div><!-- /.container-fluid -->
+			</div>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<!-- To the right -->
+			<div class="float-right d-none d-sm-inline">
+				Dasar Pemrograman Web
+			</div>
+			<!-- Default to the left -->
+			<strong>Dibuat Oleh: M Nur Fauzan W | NIM: 190411100064.</strong>
+		</footer>
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- REQUIRED SCRIPTS -->
+	<script src="assets/plugins/jquery/jquery.min.js"></script>
+	<script src="assets/dist/js/adminlte.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script>
+		$(document).ready(function () {
+
+			$("#coronaGlobal").DataTable({
+				"processing": true,
+				"ajax": {
+					"url": "https://api.kawalcorona.com/",
+					"dataSrc": ""
+				},
+				"deferRender": true,
+				"scrollY": "400px",
+				"scrollCollapse": true,
+				"paging": false,
+				"columns": [{
+						"data": "attributes.Country_Region"
+					},
+					{
+						"data": "attributes.Confirmed"
+					},
+					{
+						"data": "attributes.Recovered"
+					},
+					{
+						"data": "attributes.Deaths"
+					}
+				]
+			})
+
+			$.ajax({
+				url: "https://cors-anywhere.herokuapp.com/https://api.kawalcorona.com/positif",
+				dataType: "json",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded"
+				},
+				beforeSend: function (result) {
+					$("#positif").html("-");
+				},
+				success: function (result) {
+					$("#positif").html(result.value);
+				}
+			});
+
+			$.ajax({
+				url: "https://cors-anywhere.herokuapp.com/https://api.kawalcorona.com/sembuh",
+				dataType: "json",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded"
+				},
+				beforeSend: function (result) {
+					$("#sembuh").html("-");
+				},
+				success: function (result) {
+					$("#sembuh").html(result.value);
+				}
+			});
+
+			$.ajax({
+				url: "https://cors-anywhere.herokuapp.com/https://api.kawalcorona.com/meninggal",
+				dataType: "json",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded"
+				},
+				beforeSend: function (result) {
+					$("#meninggal").html("-");
+				},
+				success: function (result) {
+					$("#meninggal").html(result.value);
+				}
+			});
+
+			$.ajax({
+				url: "https://cors-anywhere.herokuapp.com/https://api.kawalcorona.com/indonesia",
+				dataType: "json",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded"
+				},
+				beforeSend: function (result) {
+					$("#indonesia").html("-");
+				},
+				success: function (result) {
+					$("#indonesia").html(result[0].positif + " Positif, " + result[0].sembuh +
+						" Sembuh, " + result[0].meninggal + " Meninggal");
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

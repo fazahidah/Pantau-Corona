@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    /* margin: auto; */
+    text-align: center;
+    width: 100%;
+}
+
+header ul {
+    background: #20cab9;
+    list-style: none;
+    position: static;
+    display: inline-table;
+    width: 100%;
+}
+
+header ul li {
+    float: left;
+    margin-left: 20px;
+}
+
+header ul li a {
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+header ul li a:hover {
+    background-color: turquoise;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.datatable {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+footer {
+    position: fixed;
+    margin-top: 50px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #afaaba;
+    color: black;
+    text-align: center;
+}
